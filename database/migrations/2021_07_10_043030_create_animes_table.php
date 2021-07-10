@@ -16,7 +16,6 @@ class CreateAnimesTable extends Migration
         Schema::create('animes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title',50);
-            $table->integer('category_id');
             $table->date('date');
             $table->integer('evaluation');
             $table->text('feeling');
