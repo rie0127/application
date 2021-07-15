@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('record_watched');
+    return view('top');
 });

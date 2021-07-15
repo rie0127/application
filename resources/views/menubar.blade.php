@@ -62,7 +62,7 @@
   </head>
   <body>
 
-    <ul class="menubar">
+    <ul class="menubar ,mb-5" >
       <li><a href="">登録</a>
        <ul>
           <li><a href="">観た作品</a></li>
