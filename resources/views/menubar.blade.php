@@ -13,6 +13,7 @@
        margin: 0px;               
        padding: 0px 0px 0px 15px; 
        background-color:#4689FF;
+       text-align:center
      }
 
   
@@ -62,7 +63,7 @@
   </head>
   <body>
 
-    <ul class="menubar ,mb-5" >
+    <ul class="menubar mb-5">
       <li><a href="">登録</a>
        <ul>
           <li><a href="">観た作品</a></li>

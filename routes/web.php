@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('top');
+    return view('detail_watched');
 });
+
+Route::get('/watched','AnimeController@show_list_watched');
+Route::get('/unwatch','AnimeController@show_list_unwatch');
+
+Route::get('/watched/{id}','AnimeController@show_detail_watched');
+Route::get('/unwatch/{id}','AnimeController@show_detail_unwatch');
+

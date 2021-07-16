@@ -12,18 +12,30 @@
     <title>登録画面</title>
   </head>
   <body>
-  <div class="mt-5">
-   <div class="card">
-    <div class="card-body">
-    リンク付き作品名
-    </div>
-   </div>
-   <div class="card">
-    <div class="card-body">
-    リンク付き作品名
-    </div>
-   </div>
-  </div>
+ 　<table class="table">
+ 　 <tbody>
+     <tr>
+       <th scope="row">作品名</th>
+       <td>{{ $watchedanime->title }}</td>
+     </tr>
+     <tr>
+       <th scope="row">カテゴリ</th>
+       <td>{{ $watchedanime->name }}</td>
+     </tr>
+     <tr>
+       <th scope="row">日付</th>
+       <td>{{ $watchedanime->date }}</td>
+     </tr>
+     <tr>
+       <th scope="row">評価</th>
+       <td>{{ $watchedanime->evaluation }}</td>
+     </tr>
+     <tr>
+        <th scope="row">感想</th>
+        <td>{{ $watchedanime->feeling }}</td></td>
+     </tr>
+    </tbody>
+　</table>
  
  
   </body>

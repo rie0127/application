@@ -12,17 +12,18 @@
     <title>登録画面</title>
   </head>
   <body>
-  <h2 class='mt-5'>作品履歴一覧</h2>
-   @foreach($watchedanimes as $watchedanime)
-   <div class="mt-5">
-    <div class="card">
-     <div class="card-body">
-       {{ $watchedanime->id }}
-       <a href="/watched/{{ $watchedanime->id }}">{{ $watchedanime->title }}</a>
-     </div>
+   <h2 class='mt-5'>作品履歴一覧</h2>
+  @foreach($unwatchanimes as $unwatchanime)
+  <div class="mt-5">
+   <div class="card">
+    <div class="card-body">
+     {{ $unwatchanime->id }}
+     <a href="/unwatch/{{ $unwatchanime->id }}">{{ $unwatchanime->title }}</a>
     </div>
    </div>
-   @endforeach
+  @endforeach
+ 
+ 
   </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
