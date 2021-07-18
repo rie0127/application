@@ -19,12 +19,13 @@ class CreateAnimesTable extends Migration
             $table->date('date');
             $table->integer('evaluation');
             $table->text('feeling');
-            $table->boolean('watched');
+            $table->boolean('watched')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('category_id')->unsigned();
             $table->foreign('category_id')
                   ->references('id')->on('categories')
                   ->onDelete('cascade');
+
         });
     }
 

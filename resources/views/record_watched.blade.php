@@ -13,16 +13,17 @@
   </head>
   <body>
   
-   <form class="form-horizontal">
+   <form method='POST' action="{{ route('store_watched') }}">
+    @csrf
   　
-    <div class="mb-3 mt-5 pt-5">
+   <div class="mb-3 mt-1 pt-5">
     <label>作品名</label>
-    <input type="text" name="title">
+    <input type="text" name="post[title]">
  　 </div>
  　 
     <div class="mb-3 pb-2">
     <label>カテゴリー</label>    
-　   <select class="form-select" aria-label="Default select example">
+　   <select class="form-select" aria-label="Default select example" name="post[category_id]">
  　    <option selected>選択してください。</option>
       <option value="1">SF/ファンタジー</option>
       <option value="2">ロボット/メカ</option>
@@ -39,12 +40,12 @@
  
  　<div class="mb-3 pb-2">
     <label>日付</label>
-    <input type="date" name="date">
+    <input type="date" name="post[date]">
  　</div>
  　 
  　<div class="mb-3 pb2">
     <label>評価</label>
-   　 <select class="form-select" aria-label="Default select example">
+   　 <select class="form-select" aria-label="Default select example" name="post[evaluation]">
    　　<option selected>選択してください</option>
    　　<option value="1">1</option>
    　　<option value="2">2</option>
@@ -56,7 +57,7 @@
 　
 　<div class="mb-3 pb-2">
     <label for="exampleFormControlTextarea1" class="form-label text-left">感想</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="post[feeling]" rows="3"></textarea>
   </div>
  　 
  　 <button type="submit" class="btn btn-primary">送信</button></button>

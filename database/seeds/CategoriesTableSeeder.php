@@ -11,7 +11,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-      $categories=[
+         $categories=[
                   ['id'=>1,
                    'name'=>'SF/ファンタジー'],
                   ['id'=>2,

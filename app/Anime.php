@@ -10,5 +10,19 @@ class Anime extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
+    
+     protected $guarded = array('watched');
+     
+     protected $table = 'animes';
+     
+     protected $fillable =[
+          'title',
+          'category_id',
+          'date',
+          'evaluation',
+          'feeling',
+          'updated_at',
+          'created_at'
+     ];
+    
 }

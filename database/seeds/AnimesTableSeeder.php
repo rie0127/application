@@ -40,6 +40,5 @@ class AnimesTableSeeder extends Seeder
         foreach($animes as $anime){
              \App\Anime::create($anime);
         }
-
     }
 }

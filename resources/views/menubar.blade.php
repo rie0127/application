@@ -64,14 +64,19 @@
   <body>
 
     <ul class="menubar mb-5">
-      <li><a href="">登録</a>
+      <li><a href="{{ route('home') }}">ホーム</a></li>
+      <li>登録
        <ul>
-          <li><a href="">観た作品</a></li>
-          <li><a href="">観たい作品</a></li>
+          <li><a href="{{ route('create_watched') }}">観た作品</a></li>
+          <li><a href="{{ route('create_unwatch') }}">観たい作品</a></li>
        </ul>
       </li>
-     <li><a href="">観た作品</a></li>
-   　 <li><a href="">観たい作品</a></li>
+      <li>一覧
+       <ul>
+     　    <li><a href="{{ route('list_watched') }}">観た作品</a></li>
+   　　     <li><a href="{{ route('list_unwatch') }}">観たい作品</a></li>
+   　 　</ul>
+      </li>
     </ul>
     <!-- ここにメインの処理を書く -->
  

@@ -31,13 +31,13 @@
      <div class="menubar">
       <span>
       <div> 
-      <a href="">登録</a>
+      <a>登録</a>
       </div>
-      <div><a href="">観た作品</a></div>
-      <a href="">観たい作品</a>
+      <div><a href="{{ route('create_watched') }}">観た作品</a></div>
+      <a href="{{ route('create_unwatch') }}">観たい作品</a>
       </span>
-      <span><a href="">観た作品</a></span>
-   　 <span><a href="">観たい作品</a></span>
+      <span><a href="{{ route('list_watched') }}">観た作品一覧</a></span>
+   　 <span><a href="{{ route('list_unwatch') }}">観たい作品一覧</a></span>
     </div>
     <!-- ここにメインの処理を書く -->
  

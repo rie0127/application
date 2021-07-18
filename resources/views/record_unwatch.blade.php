@@ -12,14 +12,15 @@
     <title>登録画面</title>
   </head>
   <body>
-  <form>
+  <form method="POST" action="{{ route('store_unwatch') }}">
+    @csrf
    <div class="mb-3 mt-5 pt-5">
   　<label for="inputName" class="form-label">作品名</label>
-  　<input type="string" class="form-control" id="inputname">
+  　<input type="string" class="form-control" id="inputname" name="post[title]">
    </div>
    <div class="mb-3">
     <label for="inputText" class="form-label">メモ</label>
-    <textarea class="form-control" id="inputText" rows="3"></textarea>
+    <textarea class="form-control" id="inputText" name="post[feeling]" rows="3" ></textarea>
    </div>
    <button type="submit" class="btn btn-primary">送信</button></button>
   </form>
