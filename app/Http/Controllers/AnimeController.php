@@ -15,60 +15,109 @@ class AnimeController extends Controller
       return view('top');
     }
     
-    public function show_list_watched()
+    public function index_watched()
     {
       $watchedanimes = DB::table('animes')->where('watched','=','1')->get();
       
-      return view('list_watched',['watchedanimes' => $watchedanimes]);
+      return view('Watched.index',['watchedanimes' => $watchedanimes]);
        
     }
     
-    public function show_list_unwatch()
+    public function index_unwatch()
     {
       $unwatchanimes = DB::table('animes')->where('watched','=','0')->get();
       
-      return view('list_unwatch',['unwatchanimes'=> $unwatchanimes]);
+      return view('Unwatch.index',['unwatchanimes'=> $unwatchanimes]);
     }
     
     
-    public function show_detail_watched($id)
+    public function show_watched($id)
     {
       $watchedanime= Anime::find($id);
        
-      return view('detail_watched',['watchedanime'=>$watchedanime]);
+      return view('Watched.show',['watchedanime'=>$watchedanime]);
         
     }
     
-     public function show_detail_unwatch($id)
+     public function show_unwatch($id)
     {
        $unwatchanime= Anime::find($id);
        
-       return view('detail_unwatch',['unwatchanime'=> $unwatchanime]);
+       return view('Unwatch.show',['unwatchanime'=> $unwatchanime]);
         
     }
     
-    public function show_create_watched()
+    public function create_watched()
     {
-      return view('record_watched');
+      return view('Watched.store');
     }
     
-    public function show_create_unwatch()
+    public function create_unwatch()
     {
-      return view('record_unwatch');
+      return view('Unwatch.store');
     }
     
     //登録する
-    public function exe_store_watched(AnimeRequest $request, Anime $anime)
+    public function store_watched(AnimeRequest $request, Anime $anime)
     {
-      $input = $request['post'];
-      $anime->fill($input)->save();
-      return redurect(route('list_watch'));
+      $input = $request['anime'];
+      $anime->fill($input);
+      $anime->watched=1;
+      $anime->save();
+      return redirect(route('index.watched'));
     }
     
-    public function exe_store_unwatch(AnimeRequest $request, Anime $anime)
+    public function store_unwatch(AnimeRequest $request, Anime $anime)
     {
-      $input = $request['post'];
-      $anime->fill($input)->save();
-      return redirect(route('list_unwatch'));
+      
+      $input = $request['anime'];
+      dd($input);
+      $anime->fill($input);
+      $anime->watched=0;
+      $anime->save();
+      return redirect(route('index.unwatch'));
+    }
+    
+    public function edit_watched($id)
+    {
+      $watchedanime= Anime::find($id);
+      return view('Watched.edit',['watchedanime'=>$watchedanime]);
+    }
+    
+     public function edit_unwatch($id)
+    {
+      $unwatchanime= Anime::find($id);
+      return view('Unwatch.edit',['unwatchanime'=>$unwatchanime]);
+    }
+    
+     public function update_watched(AnimeRequest $request, Anime $anime)
+    {
+      $input_anime = $request['anime'];
+      $anime->fill($input_anime);
+      $anime->watched=1;
+      $anime->save();
+      return redirect(route('index.watched'));
+    }
+    
+     public function update_unwatch(AnimeRequest $request, Anime $anime)
+    {
+      dd($anime);
+      $input_anime = $request['anime'];
+      $anime->fill($input_anime);
+      $anime->watched=0;
+      $anime->save();
+      return redirect(route('index.unwatch'));
+    }
+    
+    public function delete_watched($id)
+    {
+      $watchedanime= Anime::destroy($id);
+      return redirect(route('index.watched'));
+    }
+    
+     public function delete_unwatch($id)
+    {
+      $unwatchanime= Anime::destroy($id);
+      return redirect(route('index.unwatch'));
     }
 }

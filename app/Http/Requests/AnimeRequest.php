@@ -23,8 +23,23 @@ class AnimeRequest extends FormRequest
      */
     public function rules()
     {
+        if('anime.watched'){
         return [
-        
+            'anime.title'=>'required|string|max:50',
+            'anime.date' =>'required|date',
+            'anime.evaluation'=>'required|',
+            'anime.feeling'=>'required|string',
+            'anime.category_id'=>'required|'
         ];
+       }
+       else{
+        return [
+            'anime.title'=>'required|string|max:50',
+            'anime.date'=>'required|date',
+            'anime.evaluation'=>'nullable',
+            'anime.feeling'=>'required|string',
+            'anime.category_id'=>'nullable'
+         ];
+       }
     }
 }

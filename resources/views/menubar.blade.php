@@ -9,74 +9,85 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <style>
-     ul.menubar {
-       margin: 0px;               
-       padding: 0px 0px 0px 15px; 
-       background-color:#4689FF;
-       text-align:center
-     }
+    ul.menubar {
+     margin: 0px;               
+     padding: 0px 0px 0px 15px; 
+     background-color: #4689FF;
+     text-align:center;
+    }
 
-  
     ul.menubar li {
-       width: 125px;          
-       display: inline-block;  
-       list-style-type: none;  
-       position: relative;     
-     }
-   
+     width: 125px;           
+     display: inline-block;  
+     list-style-type: none; 
+     position: relative;    
+    }
+    
     ul.menubar a {
-      background-color:#4689FF; 
-      color: white;              
-      line-height: 40px;        
-      text-align: center;        
-      text-decoration: none;     
-      font-weight: bold;         
-      display: block;    
-     }
-
+     background-color: #4689FF; 
+     color: white;              
+     line-height: 40px;         
+     text-align: center;        
+     text-decoration: none;    
+     font-weight: bold;        
+     display: block;           
+    } 
+    
     ul.menubar a:hover {
-      background-color:#BAD3FF; 
-      color: white;            
-     }
+     background-color: #BAD3FF; 
+     color: white;            
+    }
 
     ul.menubar ul {
-      display: none;         
+     display: none;         
     }
     
     ul.menubar ul {
-      display: none;      
-      margin: 0px;         
-      padding: 0px;        
-      position: absolute;  
+     display: none;     
+     margin: 0px;         
+     padding: 0px;        
+     position: absolute;  
     }
 
 
-   ul.menubar li:hover ul {
-      display: block;      
+    ul.menubar li:hover ul {
+     display: block;      
     }
-   
+    
+    ul.menubar ul li {   
+     width: 135px;              
+     border-top: 1px solid blue; 
+    }
+    ul.menubar ul li a {   
+     line-height: 35px;   
+     text-align: left;    
+     padding-left: 5px;   
+     font-weight: bold; 
+    }
+    ul.menubar ul li a:hover {  
+     background-color: #BAD3FF; 
+     color: white;            
+    }
+    
    </style>
-    
-    
- 
-    <title>アニメ履歴</title>
+   
+   <title>アニメ履歴</title>
   </head>
   <body>
-
     <ul class="menubar mb-5">
-      <li><a href="{{ route('home') }}">ホーム</a></li>
-      <li>登録
-       <ul>
-          <li><a href="{{ route('create_watched') }}">観た作品</a></li>
-          <li><a href="{{ route('create_unwatch') }}">観たい作品</a></li>
-       </ul>
-      </li>
-      <li>一覧
-       <ul>
-     　    <li><a href="{{ route('list_watched') }}">観た作品</a></li>
-   　　     <li><a href="{{ route('list_unwatch') }}">観たい作品</a></li>
-   　 　</ul>
-      </li>
+     <li><a href="{{ route('home') }}">ホーム</a></li>
+     <li><a href>登録</a>
+      <ul>
+         <li><a href="{{ route('create.watched') }}">観た作品</a></li>
+         <li><a href="{{ route('create.unwatch') }}">観たい作品</a></li>
+      </ul>
+     </li>
+     <li><a href>一覧</a>
+      <ul>
+         <li><a href="{{ route('index.watched') }}">観た作品</a></li>
+         <li><a href="{{ route('index.unwatch') }}">観たい作品</a></li>
+      </ul>
+     </li>
     </ul>
     <!-- ここにメインの処理を書く -->
  

@@ -17,11 +17,11 @@ class CreateAnimesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title',50);
             $table->date('date');
-            $table->integer('evaluation');
+            $table->integer('evaluation')->nullable();
             $table->text('feeling');
             $table->boolean('watched')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('category_id')->unsigned();
+            $table->unsignedBigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')
                   ->references('id')->on('categories')
                   ->onDelete('cascade');

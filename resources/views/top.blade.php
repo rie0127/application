@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     
- 
+    @include('menubar')
     <title>アニメ履歴</title>
   </head>
   <body>
@@ -24,21 +24,11 @@
     <!-- <li><a href="">観た作品</a></li>-->
    　<!-- <li><a href="">観たい作品</a></li>-->
     <!--</ul>-->
-     <div class="container-fluid text-center">
-       <h1>アプリ名</h1>
+     <div class="position-absolute h-100 w-100 m-0 d-flex align-items-center justify-content-center">
+       <h1>Record Anime</h1>
      </div>
       
-     <div class="menubar">
-      <span>
-      <div> 
-      <a>登録</a>
-      </div>
-      <div><a href="{{ route('create_watched') }}">観た作品</a></div>
-      <a href="{{ route('create_unwatch') }}">観たい作品</a>
-      </span>
-      <span><a href="{{ route('list_watched') }}">観た作品一覧</a></span>
-   　 <span><a href="{{ route('list_unwatch') }}">観たい作品一覧</a></span>
-    </div>
+     
     <!-- ここにメインの処理を書く -->
  
     <!-- Optional JavaScript -->

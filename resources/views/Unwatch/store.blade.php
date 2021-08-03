@@ -12,18 +12,28 @@
     <title>登録画面</title>
   </head>
   <body>
- 　<table class="table">
- 　 <tbody>
-     <tr>
-       <th scope="row">作品名</th>
-       <td>{{ $unwatchanime->title }}</td>
-     </tr>
-     <tr>
-        <th scope="row">メモ</th>
-        <td>{{ $unwatchanime->feeling }}</td>
-     </tr>
-    </tbody>
-　 </table>
+  <form method="POST" action="{{ route('store.unwatch') }}">
+    @csrf
+   
+   <div class="mb-3 mt-5 pt-5">
+  　<label for="inputName" class="form-label">作品名</label>
+  　<input type="string" class="form-control" id="inputname" name="anime[title]">
+  　<p class="title__error" style="color:red">{{ $errors->first('anime.title') }}</p>
+   </div>
+   <div class="mb-3 pb-2">
+    <label>日付</label>
+    <input type="date" name="anime[date]">
+    <p class="date__error" style="color:red">{{ $errors->first('anime.date') }}</p>
+ 　</div>
+   <div class="mb-3">
+    <label for="inputText" class="form-label">メモ</label>
+    <textarea class="form-control" id="inputText" name="anime[feeling]" value="{{ old('anime.feeling') }}"rows="3" ></textarea>
+    <p class="feeling__error" style="color:red">{{ $errors->first('anime.feeling') }}</p>
+   </div>
+   <button type="submit" class="btn btn-primary">送信</button></button>
+  </form>
+ 
+ 
   </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

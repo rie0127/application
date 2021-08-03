@@ -12,19 +12,20 @@
     <title>登録画面</title>
   </head>
   <body>
-  
-   <form method='POST' action="{{ route('store_watched') }}">
+   <form method='POST' action="/animes/update/{{ $watchedanime->id }}">
+    <p>{{ $watchedanime->id }}</p>
     @csrf
-  　
+  　@method('PUT')
    <div class="mb-3 mt-1 pt-5">
     <label>作品名</label>
-    <input type="text" name="post[title]">
+    <input type="text" name="anime[title]" value="{{ $watchedanime->title }}">
+    <p class="title__error" style="color:red">{{ $errors->first('anime.title') }}</p>
  　 </div>
  　 
-    <div class="mb-3 pb-2">
+    <div class="mb-2">
     <label>カテゴリー</label>    
-　   <select class="form-select" aria-label="Default select example" name="post[category_id]">
- 　    <option selected>選択してください。</option>
+　   <select class="form-select" aria-label="Default select example" name="anime[category_id]" value="{{ $watchedanime->category_id}}">
+ 　    <option selected value="">選択してください。</option>
       <option value="1">SF/ファンタジー</option>
       <option value="2">ロボット/メカ</option>
  　  　<option value="3">アクションバトル</option>
@@ -36,36 +37,40 @@
  　　 <option value="9">歴史/戦記</option>
  　　 <option value="10">青春</option>
  　  </select>
+ 　 <p class="category_id__error" style="color:red">{{ $errors->first('anime.category_id') }}</p> 
  　 </div>
  
- 　<div class="mb-3 pb-2">
+ 　<div class="mb-2">
     <label>日付</label>
-    <input type="date" name="post[date]">
+    <input type="date" name="anime[date]" value="{{ $watchedanime->date }}">
+    <p class="date__error" style="color:red">{{ $errors->first('anime.date') }}</p>
  　</div>
  　 
- 　<div class="mb-3 pb2">
+ 　<div class="mb-2">
     <label>評価</label>
-   　 <select class="form-select" aria-label="Default select example" name="post[evaluation]">
-   　　<option selected>選択してください</option>
+   　 <select class="form-select" aria-label="Default select example" name="anime[evaluation]" value="{{ $watchedanime->evaluation }}">
+   　　<option selected value="">選択してください</option>
    　　<option value="1">1</option>
    　　<option value="2">2</option>
    　　<option value="3">3</option>
    　　<option value="4">4</option>
    　　<option value="5">5</option>
 　   </select>
+　   <p class="evaluation__error" style="color:red">{{ $errors->first('anime.evaluation') }}</p>
  　</div>
 　
-　<div class="mb-3 pb-2">
+　<div class="mb-2">
     <label for="exampleFormControlTextarea1" class="form-label text-left">感想</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="post[feeling]" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="anime[feeling]" rows="3">{{ $watchedanime->feeling }}</textarea>
+    <p class="feeling__error" style="color:red">{{ $errors->first('anime.feeling') }}</p>
   </div>
  　 
- 　 <button type="submit" class="btn btn-primary">送信</button></button>
+ 　<button type="submit" class="btn btn-primary">更新</button>
   </form>
   </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</html>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-</html>

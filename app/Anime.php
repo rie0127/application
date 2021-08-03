@@ -11,7 +11,7 @@ class Anime extends Model
         return $this->belongsTo(Category::class);
     }
     
-     protected $guarded = array('watched');
+    //  protected $guarded = array('watched');
      
      protected $table = 'animes';
      
@@ -21,6 +21,7 @@ class Anime extends Model
           'date',
           'evaluation',
           'feeling',
+          'watched',
           'updated_at',
           'created_at'
      ];

@@ -12,16 +12,40 @@
     <title>登録画面</title>
   </head>
   <body>
-  <h2 class='mt-5'>観た作品一覧</h2>
-   @foreach($watchedanimes as $watchedanime)
-   <div class="mt-5">
-    <div class="card">
-     <div class="card-body">
-       <a href="/watched/{{ $watchedanime->id }}">{{ $watchedanime->title }}</a>
-     </div>
-    </div>
-   </div>
-   @endforeach
+ 　<table class="table">
+ 　 <tbody>
+     <tr>
+       <th scope="row">作品名</th>
+       <td>{{ $watchedanime->title }}</td>
+     </tr>
+     <tr>
+       <th scope="row">カテゴリ</th>
+       <td>{{ $watchedanime->category->name }}</td>
+     </tr>
+     <tr>
+       <th scope="row">日付</th>
+       <td>{{ $watchedanime->date }}</td>
+     </tr>
+     <tr>
+       <th scope="row">評価</th>
+       <td>{{ $watchedanime->evaluation }}</td>
+     </tr>
+     <tr>
+        <th scope="row">感想</th>
+        <td>{{ $watchedanime->feeling }}</td></td>
+     </tr>
+    </tbody>
+　</table>
+　<div class="row">
+　<div class="form-group">
+　<button type="submit" class="btn btn-primary col-3" onclick="location.href='/animes/edit/{{ $watchedanime->id }}'">編集</button></button>
+　<form style="display:inline;" method="POST" action="{{ route('delete.watched' , $watchedanime->id) }}">
+    @csrf
+　<button type="submit" class="btn btn-primary col-3" onclick=>削除</button>
+　</form>
+　</div>
+　</div>
+
   </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

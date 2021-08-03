@@ -12,22 +12,27 @@
 */
 //ホーム画面表示
 Route::get('/','AnimeController@show_top')->name('home');
+Route::get('/animes','AnimeController@index_watched')->name('index.watched');
+Route::get('/animes/create','AnimeController@create_watched')->name('create.watched');
 
-//登録画面表示
-Route::get('/animes/create','AnimeController@show_create_watched')->name('create_watched');
-Route::get('/animes/create/unwatch','AnimeController@show_create_unwatch')->name('create_unwatch');
-
-
-//実際の登録
-Route::post('/animes/store','AnimeController@exe_store_watched')->name('store_watched');
-Route::post('/animes/store/unwatch','AnimeController@exe_store_unwatch')->name('store_unwatch');
+Route::post('/animes/store','AnimeController@store_watched')->name('store.watched');
+Route::post('/animes/store/unwatch','AnimeController@store_unwatch')->name('store.unwatch');
 
 
-//一覧画面の表示
-Route::get('/animes','AnimeController@show_list_watched')->name('list_watched');
-Route::get('/animes/unwatch','AnimeController@show_list_unwatch')->name('list_unwatch');
 
-//詳細画面の表示
-Route::get('/animes/{id}','AnimeController@show_detail_watched');
-Route::get('/animes/unwatch/{id}','AnimeController@show_detail_unwatch');
+
+Route::get('/animes/unwatch','AnimeController@index_unwatch')->name('index.unwatch');
+
+Route::put('/animes/update/unwatch/{anime}','AnimeController@update_unwatch')->name('update.unwatch');
+Route::get('/animes/create/unwatch','AnimeController@create_unwatch')->name('create.unwatch');
+Route::get('/animes/edit/unwatch/{id}','AnimeController@edit_unwatch')->name('edit.unwatch');
+Route::post('/animes/delete/unwatch/{id}','AnimeController@delete_unwatch')->name('delete.unwatch');
+
+Route::put('/animes/update/{anime}','AnimeController@update_watched')->name('update.watched');
+
+Route::get('/animes/edit/{id}','AnimeController@edit_watched')->name('edit.watched');
+Route::post('/animes/delete/{id}','AnimeController@delete_watched')->name('delete.watched');
+
+Route::get('/animes/unwatch/{id}','AnimeController@show_unwatch');
+Route::get('/animes/{id}','AnimeController@show_watched');
 

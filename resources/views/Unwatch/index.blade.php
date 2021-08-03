@@ -12,30 +12,15 @@
     <title>登録画面</title>
   </head>
   <body>
- 　<table class="table">
- 　 <tbody>
-     <tr>
-       <th scope="row">作品名</th>
-       <td>{{ $watchedanime->title }}</td>
-     </tr>
-     <tr>
-       <th scope="row">カテゴリ</th>
-       <td>{{ $watchedanime->name }}</td>
-     </tr>
-     <tr>
-       <th scope="row">日付</th>
-       <td>{{ $watchedanime->date }}</td>
-     </tr>
-     <tr>
-       <th scope="row">評価</th>
-       <td>{{ $watchedanime->evaluation }}</td>
-     </tr>
-     <tr>
-        <th scope="row">感想</th>
-        <td>{{ $watchedanime->feeling }}</td></td>
-     </tr>
-    </tbody>
-　</table>
+   <h2 class='mt-5'>観たい作品一覧</h2>
+  @foreach($unwatchanimes as $unwatchanime)
+  <div class="mt-5">
+   <div class="card">
+    <div class="card-body">
+     <a href="/animes/unwatch/{{ $unwatchanime->id }}">{{ $unwatchanime->title }}</a>
+    </div>
+   </div>
+  @endforeach
  
  
   </body>

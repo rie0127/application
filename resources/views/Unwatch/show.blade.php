@@ -12,20 +12,35 @@
     <title>登録画面</title>
   </head>
   <body>
-  <form method="POST" action="{{ route('store_unwatch') }}">
+ 　<table class="table">
+ 　  <tbody>
+     <tr>
+       <th scope="row">作品名</th>
+       <td>{{ $unwatchanime->title }}</td>
+     </tr>
+     <tr>
+       <th scope="row">日付</th>
+       <td>{{ $unwatchanime->date }}</td>
+     </tr>
+     <tr>
+        <th scope="row">メモ</th>
+        <td>{{ $unwatchanime->feeling }}</td>
+     </tr>
+    </tbody>
+　 </table>
+　
+　 <div class="row">
+　 <div class="form-group">
+　 <button class="btn btn-primary col-3" onclick="location.href='/animes/edit/unwatch/{{ $unwatchanime->id }}'">編集</button>
+　 <form style="display:inline;" method="POST" action="{{ route('delete.unwatch' , $unwatchanime->id) }}">
     @csrf
-   <div class="mb-3 mt-5 pt-5">
-  　<label for="inputName" class="form-label">作品名</label>
-  　<input type="string" class="form-control" id="inputname" name="post[title]">
-   </div>
-   <div class="mb-3">
-    <label for="inputText" class="form-label">メモ</label>
-    <textarea class="form-control" id="inputText" name="post[feeling]" rows="3" ></textarea>
-   </div>
-   <button type="submit" class="btn btn-primary">送信</button></button>
-  </form>
- 
- 
+　 <button type="submit" class="btn btn-primary col-3" onclick=>削除</button>
+　 </form>
+　 </div>
+　 </div>
+　 
+　 
+
   </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
