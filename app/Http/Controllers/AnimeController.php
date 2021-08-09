@@ -6,7 +6,8 @@ use App\Anime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AnimeRequest;
+use App\Http\Requests\WatchedRequest;
+use App\Http\Requests\UnwatchRequest;
 
 class AnimeController extends Controller
 {
@@ -58,7 +59,7 @@ class AnimeController extends Controller
     }
     
     //登録する
-    public function store_watched(AnimeRequest $request, Anime $anime)
+    public function store_watched(WatchedRequest $request, Anime $anime)
     {
       $input = $request['anime'];
       $anime->fill($input);
@@ -67,11 +68,9 @@ class AnimeController extends Controller
       return redirect(route('index.watched'));
     }
     
-    public function store_unwatch(AnimeRequest $request, Anime $anime)
+    public function store_unwatch(UnwatchedRequest $request, Anime $anime)
     {
-      
       $input = $request['anime'];
-      dd($input);
       $anime->fill($input);
       $anime->watched=0;
       $anime->save();
@@ -90,7 +89,7 @@ class AnimeController extends Controller
       return view('Unwatch.edit',['unwatchanime'=>$unwatchanime]);
     }
     
-     public function update_watched(AnimeRequest $request, Anime $anime)
+     public function update_watched(WatchedRequest $request, Anime $anime)
     {
       $input_anime = $request['anime'];
       $anime->fill($input_anime);
@@ -99,9 +98,8 @@ class AnimeController extends Controller
       return redirect(route('index.watched'));
     }
     
-     public function update_unwatch(AnimeRequest $request, Anime $anime)
+     public function update_unwatch(UnwatchRequest $request, Anime $anime)
     {
-      dd($anime);
       $input_anime = $request['anime'];
       $anime->fill($input_anime);
       $anime->watched=0;

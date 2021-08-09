@@ -13,7 +13,6 @@
   </head>
   <body>
    <form method='POST' action="/animes/update/{{ $watchedanime->id }}">
-    <p>{{ $watchedanime->id }}</p>
     @csrf
   　@method('PUT')
    <div class="mb-3 mt-1 pt-5">

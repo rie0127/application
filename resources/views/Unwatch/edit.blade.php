@@ -15,16 +15,16 @@
   <form method="POST" action="{{route('update.unwatch', [ 'anime'=> $unwatchanime->id ])}}">
     @csrf
     @method('PUT')
-       <!-- <div class="mb-3 mt-5 pt-5">-->
-       <!--   　<label for="inputName" class="form-label">作品名</label>-->
-       <!--     <input type="string" class="form-control" id="inputname" name="anime[title]" value="{{ $unwatchanime->title }}"/>-->
-       <!--   　<p class="title__error" style="color:red">{{ $errors->first('anime.title') }}</p>-->
-       <!-- </div>-->
-       <!-- <div class="mb-3 pb-2">-->
-       <!--     <label>日付</label>-->
-       <!--     <input type="date" name="anime[date]" value="{{ $unwatchanime->date }}"/>-->
-       <!--     <p class="date__error" style="color:red">{{ $errors->first('anime.date') }}</p>-->
-     　 <!--</div>-->
+        <div class="mb-3 mt-5 pt-5">
+          　<label for="inputName" class="form-label">作品名</label>
+            <input type="string" class="form-control" id="inputname" name="anime[title]" value="{{ $unwatchanime->title }}"/>
+          　<p class="title__error" style="color:red">{{ $errors->first('anime.title') }}</p>
+        </div>
+        <div class="mb-3 pb-2">
+            <label>日付</label>
+            <input type="date" name="anime[date]" value="{{ $unwatchanime->date }}"/>
+            <p class="date__error" style="color:red">{{ $errors->first('anime.date') }}</p>
+     　 </div>
         <div class="mb-3">
             <label for="inputText" class="form-label">メモ</label>
             <textarea class="form-control" id="inputText" name="anime[feeling]" rows="3" >{{ $unwatchanime->feeling }}</textarea>

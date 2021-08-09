@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AnimeRequest extends FormRequest
+class UnwatchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,6 @@ class AnimeRequest extends FormRequest
      */
     public function rules()
     {
-        if('anime.watched'){
-        return [
-            'anime.title'=>'required|string|max:50',
-            'anime.date' =>'required|date',
-            'anime.evaluation'=>'required|',
-            'anime.feeling'=>'required|string',
-            'anime.category_id'=>'required|'
-        ];
-       }
-       else{
         return [
             'anime.title'=>'required|string|max:50',
             'anime.date'=>'required|date',
@@ -41,5 +31,4 @@ class AnimeRequest extends FormRequest
             'anime.category_id'=>'nullable'
          ];
        }
-    }
 }
