@@ -11,6 +11,9 @@
 |
 */
 //ホーム画面表示
+// Route::get('/',function(){
+//     return view('welcome');
+// });
 Route::get('/','AnimeController@show_top')->name('home');
 Route::get('/animes','AnimeController@index_watched')->name('index.watched');
 Route::get('/animes/create','AnimeController@create_watched')->name('create.watched');
@@ -36,3 +39,7 @@ Route::post('/animes/delete/{id}','AnimeController@delete_watched')->name('delet
 Route::get('/animes/unwatch/{id}','AnimeController@show_unwatch');
 Route::get('/animes/{id}','AnimeController@show_watched');
 
+
+// Auth::routes();
+
+// Route::get('/home','HomeController@index')->name('home');
